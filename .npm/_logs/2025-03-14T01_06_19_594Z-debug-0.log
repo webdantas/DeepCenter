@@ -1,0 +1,454 @@
+0 verbose cli /usr/bin/node /usr/bin/npm
+1 info using npm@9.2.0
+2 info using node@v18.19.0
+3 timing npm:load:whichnode Completed in 1ms
+4 timing config:load:defaults Completed in 4ms
+5 timing config:load:file:/usr/share/nodejs/npm/npmrc Completed in 5ms
+6 timing config:load:builtin Completed in 5ms
+7 timing config:load:cli Completed in 8ms
+8 timing config:load:env Completed in 1ms
+9 timing config:load:project Completed in 13ms
+10 timing config:load:file:/var/www/.npmrc Completed in 2ms
+11 timing config:load:user Completed in 2ms
+12 timing config:load:file:/etc/npmrc Completed in 1ms
+13 timing config:load:global Completed in 1ms
+14 timing config:load:setEnvs Completed in 4ms
+15 timing config:load Completed in 42ms
+16 timing npm:load:configload Completed in 42ms
+17 timing npm:load:mkdirpcache Completed in 2ms
+18 timing npm:load:mkdirplogs Completed in 6ms
+19 verbose title npm install jquery @popperjs/core
+20 verbose argv "install" "jquery" "@popperjs/core"
+21 timing npm:load:setTitle Completed in 4ms
+22 timing config:load:flatten Completed in 14ms
+23 timing npm:load:display Completed in 17ms
+24 verbose logfile logs-max:10 dir:/var/www/.npm/_logs/2025-03-14T01_06_19_594Z-
+25 verbose logfile /var/www/.npm/_logs/2025-03-14T01_06_19_594Z-debug-0.log
+26 timing npm:load:logFile Completed in 29ms
+27 timing npm:load:timers Completed in 1ms
+28 timing npm:load:configScope Completed in 0ms
+29 timing npm:load Completed in 104ms
+30 silly logfile done cleaning log files
+31 timing config:load:flatten Completed in 7ms
+32 timing arborist:ctor Completed in 2ms
+33 timing idealTree:init Completed in 1425ms
+34 timing idealTree:userRequests Completed in 10ms
+35 silly idealTree buildDeps
+36 silly fetch manifest jquery@*
+37 timing arborist:ctor Completed in 0ms
+38 http fetch GET 200 https://registry.npmjs.org/jquery 1372ms (cache miss)
+39 silly fetch manifest @popperjs/core@*
+40 http fetch GET 200 https://registry.npmjs.org/@popperjs%2fcore 327ms (cache miss)
+41 silly placeDep ROOT @popperjs/core@2.11.8 OK for:  want: *
+42 silly placeDep ROOT jquery@3.7.1 OK for:  want: *
+43 timing idealTree:#root Completed in 1870ms
+44 timing idealTree:node_modules/@popperjs/core Completed in 0ms
+45 timing idealTree:node_modules/jquery Completed in 0ms
+46 timing idealTree:buildDeps Completed in 1877ms
+47 timing idealTree:fixDepFlags Completed in 1ms
+48 timing idealTree Completed in 3332ms
+49 timing reify:loadTrees Completed in 3336ms
+50 timing reify:diffTrees Completed in 284ms
+51 silly reify moves {}
+52 timing reify:retireShallow Completed in 5ms
+53 timing reify:createSparse Completed in 64ms
+54 timing reify:loadBundles Completed in 0ms
+55 silly audit bulk request {
+55 silly audit   '@alloc/quick-lru': [ '5.2.0' ],
+55 silly audit   '@esbuild/aix-ppc64': [ '0.21.5' ],
+55 silly audit   '@esbuild/android-arm': [ '0.21.5' ],
+55 silly audit   '@esbuild/android-arm64': [ '0.21.5' ],
+55 silly audit   '@esbuild/android-x64': [ '0.21.5' ],
+55 silly audit   '@esbuild/darwin-arm64': [ '0.21.5' ],
+55 silly audit   '@esbuild/darwin-x64': [ '0.21.5' ],
+55 silly audit   '@esbuild/freebsd-arm64': [ '0.21.5' ],
+55 silly audit   '@esbuild/freebsd-x64': [ '0.21.5' ],
+55 silly audit   '@esbuild/linux-arm': [ '0.21.5' ],
+55 silly audit   '@esbuild/linux-arm64': [ '0.21.5' ],
+55 silly audit   '@esbuild/linux-ia32': [ '0.21.5' ],
+55 silly audit   '@esbuild/linux-loong64': [ '0.21.5' ],
+55 silly audit   '@esbuild/linux-mips64el': [ '0.21.5' ],
+55 silly audit   '@esbuild/linux-ppc64': [ '0.21.5' ],
+55 silly audit   '@esbuild/linux-riscv64': [ '0.21.5' ],
+55 silly audit   '@esbuild/linux-s390x': [ '0.21.5' ],
+55 silly audit   '@esbuild/linux-x64': [ '0.21.5' ],
+55 silly audit   '@esbuild/netbsd-x64': [ '0.21.5' ],
+55 silly audit   '@esbuild/openbsd-x64': [ '0.21.5' ],
+55 silly audit   '@esbuild/sunos-x64': [ '0.21.5' ],
+55 silly audit   '@esbuild/win32-arm64': [ '0.21.5' ],
+55 silly audit   '@esbuild/win32-ia32': [ '0.21.5' ],
+55 silly audit   '@esbuild/win32-x64': [ '0.21.5' ],
+55 silly audit   '@isaacs/cliui': [ '8.0.2' ],
+55 silly audit   '@jridgewell/gen-mapping': [ '0.3.8' ],
+55 silly audit   '@jridgewell/resolve-uri': [ '3.1.2' ],
+55 silly audit   '@jridgewell/set-array': [ '1.2.1' ],
+55 silly audit   '@jridgewell/sourcemap-codec': [ '1.5.0' ],
+55 silly audit   '@jridgewell/trace-mapping': [ '0.3.25' ],
+55 silly audit   '@nodelib/fs.scandir': [ '2.1.5' ],
+55 silly audit   '@nodelib/fs.stat': [ '2.0.5' ],
+55 silly audit   '@nodelib/fs.walk': [ '1.2.8' ],
+55 silly audit   '@pkgjs/parseargs': [ '0.11.0' ],
+55 silly audit   '@rollup/rollup-android-arm-eabi': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-android-arm64': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-darwin-arm64': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-darwin-x64': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-freebsd-arm64': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-freebsd-x64': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-linux-arm-gnueabihf': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-linux-arm-musleabihf': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-linux-arm64-gnu': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-linux-arm64-musl': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-linux-loongarch64-gnu': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-linux-powerpc64le-gnu': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-linux-riscv64-gnu': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-linux-s390x-gnu': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-linux-x64-gnu': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-linux-x64-musl': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-win32-arm64-msvc': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-win32-ia32-msvc': [ '4.35.0' ],
+55 silly audit   '@rollup/rollup-win32-x64-msvc': [ '4.35.0' ],
+55 silly audit   '@tailwindcss/forms': [ '0.5.10' ],
+55 silly audit   '@types/estree': [ '1.0.6' ],
+55 silly audit   '@vue/reactivity': [ '3.1.5' ],
+55 silly audit   '@vue/shared': [ '3.1.5' ],
+55 silly audit   alpinejs: [ '3.14.9' ],
+55 silly audit   'ansi-regex': [ '6.1.0', '5.0.1' ],
+55 silly audit   'ansi-styles': [ '6.2.1', '4.3.0' ],
+55 silly audit   'any-promise': [ '1.3.0' ],
+55 silly audit   anymatch: [ '3.1.3' ],
+55 silly audit   arg: [ '5.0.2' ],
+55 silly audit   asynckit: [ '0.4.0' ],
+55 silly audit   autoprefixer: [ '10.4.21' ],
+55 silly audit   axios: [ '1.8.3' ],
+55 silly audit   'balanced-match': [ '1.0.2' ],
+55 silly audit   'binary-extensions': [ '2.3.0' ],
+55 silly audit   'brace-expansion': [ '2.0.1' ],
+55 silly audit   braces: [ '3.0.3' ],
+55 silly audit   browserslist: [ '4.24.4' ],
+55 silly audit   'call-bind-apply-helpers': [ '1.0.2' ],
+55 silly audit   'camelcase-css': [ '2.0.1' ],
+55 silly audit   'caniuse-lite': [ '1.0.30001704' ],
+55 silly audit   chokidar: [ '3.6.0' ],
+55 silly audit   'glob-parent': [ '5.1.2', '6.0.2' ],
+55 silly audit   'color-convert': [ '2.0.1' ],
+55 silly audit   'color-name': [ '1.1.4' ],
+55 silly audit   'combined-stream': [ '1.0.8' ],
+55 silly audit   commander: [ '4.1.1' ],
+55 silly audit   'cross-spawn': [ '7.0.6' ],
+55 silly audit   cssesc: [ '3.0.0' ],
+55 silly audit   'delayed-stream': [ '1.0.0' ],
+55 silly audit   didyoumean: [ '1.2.2' ],
+55 silly audit   dlv: [ '1.1.3' ],
+55 silly audit   'dunder-proto': [ '1.0.1' ],
+55 silly audit   eastasianwidth: [ '0.2.0' ],
+55 silly audit   'electron-to-chromium': [ '1.5.118' ],
+55 silly audit   'emoji-regex': [ '9.2.2', '8.0.0' ],
+55 silly audit   'es-define-property': [ '1.0.1' ],
+55 silly audit   'es-errors': [ '1.3.0' ],
+55 silly audit   'es-object-atoms': [ '1.1.1' ],
+55 silly audit   'es-set-tostringtag': [ '2.1.0' ],
+55 silly audit   esbuild: [ '0.21.5' ],
+55 silly audit   escalade: [ '3.2.0' ],
+55 silly audit   'fast-glob': [ '3.3.3' ],
+55 silly audit   fastq: [ '1.19.1' ],
+55 silly audit   'fill-range': [ '7.1.1' ],
+55 silly audit   'follow-redirects': [ '1.15.9' ],
+55 silly audit   'foreground-child': [ '3.3.1' ],
+55 silly audit   'form-data': [ '4.0.2' ],
+55 silly audit   'fraction.js': [ '4.3.7' ],
+55 silly audit   fsevents: [ '2.3.3' ],
+55 silly audit   'function-bind': [ '1.1.2' ],
+55 silly audit   'get-intrinsic': [ '1.3.0' ],
+55 silly audit   'get-proto': [ '1.0.1' ],
+55 silly audit   glob: [ '10.4.5' ],
+55 silly audit   gopd: [ '1.2.0' ],
+55 silly audit   'has-symbols': [ '1.1.0' ],
+55 silly audit   'has-tostringtag': [ '1.0.2' ],
+55 silly audit   hasown: [ '2.0.2' ],
+55 silly audit   'is-binary-path': [ '2.1.0' ],
+55 silly audit   'is-core-module': [ '2.16.1' ],
+55 silly audit   'is-extglob': [ '2.1.1' ],
+55 silly audit   'is-fullwidth-code-point': [ '3.0.0' ],
+55 silly audit   'is-glob': [ '4.0.3' ],
+55 silly audit   'is-number': [ '7.0.0' ],
+55 silly audit   isexe: [ '2.0.0' ],
+55 silly audit   jackspeak: [ '3.4.3' ],
+55 silly audit   jiti: [ '1.21.7' ],
+55 silly audit   'laravel-vite-plugin': [ '1.2.0' ],
+55 silly audit   lilconfig: [ '3.1.3' ],
+55 silly audit   'lines-and-columns': [ '1.2.4' ],
+55 silly audit   'lru-cache': [ '10.4.3' ],
+55 silly audit   'math-intrinsics': [ '1.1.0' ],
+55 silly audit   merge2: [ '1.4.1' ],
+55 silly audit   micromatch: [ '4.0.8' ],
+55 silly audit   'mime-db': [ '1.52.0' ],
+55 silly audit   'mime-types': [ '2.1.35' ],
+55 silly audit   'mini-svg-data-uri': [ '1.4.4' ],
+55 silly audit   minimatch: [ '9.0.5' ],
+55 silly audit   minipass: [ '7.1.2' ],
+55 silly audit   mz: [ '2.7.0' ],
+55 silly audit   nanoid: [ '3.3.9' ],
+55 silly audit   'node-releases': [ '2.0.19' ],
+55 silly audit   'normalize-path': [ '3.0.0' ],
+55 silly audit   'normalize-range': [ '0.1.2' ],
+55 silly audit   'object-assign': [ '4.1.1' ],
+55 silly audit   'object-hash': [ '3.0.0' ],
+55 silly audit   'package-json-from-dist': [ '1.0.1' ],
+55 silly audit   'path-key': [ '3.1.1' ],
+55 silly audit   'path-parse': [ '1.0.7' ],
+55 silly audit   'path-scurry': [ '1.11.1' ],
+55 silly audit   picocolors: [ '1.1.1' ],
+55 silly audit   picomatch: [ '2.3.1' ],
+55 silly audit   pify: [ '2.3.0' ],
+55 silly audit   pirates: [ '4.0.6' ],
+55 silly audit   postcss: [ '8.5.3' ],
+55 silly audit   'postcss-import': [ '15.1.0' ],
+55 silly audit   'postcss-js': [ '4.0.1' ],
+55 silly audit   'postcss-load-config': [ '4.0.2' ],
+55 silly audit   'postcss-nested': [ '6.2.0' ],
+55 silly audit   'postcss-selector-parser': [ '6.1.2' ],
+55 silly audit   'postcss-value-parser': [ '4.2.0' ],
+55 silly audit   'proxy-from-env': [ '1.1.0' ],
+55 silly audit   'queue-microtask': [ '1.2.3' ],
+55 silly audit   'read-cache': [ '1.0.0' ],
+55 silly audit   readdirp: [ '3.6.0' ],
+55 silly audit   resolve: [ '1.22.10' ],
+55 silly audit   reusify: [ '1.1.0' ],
+55 silly audit   rollup: [ '4.35.0' ],
+55 silly audit   'run-parallel': [ '1.2.0' ],
+55 silly audit   'shebang-command': [ '2.0.0' ],
+55 silly audit   'shebang-regex': [ '3.0.0' ],
+55 silly audit   'signal-exit': [ '4.1.0' ],
+55 silly audit   'source-map-js': [ '1.2.1' ],
+55 silly audit   'string-width': [ '5.1.2', '4.2.3' ],
+55 silly audit   'strip-ansi': [ '6.0.1', '7.1.0' ],
+55 silly audit   sucrase: [ '3.35.0' ],
+55 silly audit   'supports-preserve-symlinks-flag': [ '1.0.0' ],
+55 silly audit   tailwindcss: [ '3.4.17' ],
+55 silly audit   thenify: [ '3.3.1' ],
+55 silly audit   'thenify-all': [ '1.6.0' ],
+55 silly audit   'to-regex-range': [ '5.0.1' ],
+55 silly audit   'ts-interface-checker': [ '0.1.13' ],
+55 silly audit   'update-browserslist-db': [ '1.1.3' ],
+55 silly audit   'util-deprecate': [ '1.0.2' ],
+55 silly audit   vite: [ '5.4.14' ],
+55 silly audit   'vite-plugin-full-reload': [ '1.2.0' ],
+55 silly audit   which: [ '2.0.2' ],
+55 silly audit   'wrap-ansi': [ '8.1.0', '7.0.0' ],
+55 silly audit   yaml: [ '2.7.0' ],
+55 silly audit   '@popperjs/core': [ '2.11.8' ],
+55 silly audit   jquery: [ '3.7.1' ]
+55 silly audit }
+56 verbose reify failed optional dependency /var/www/node_modules/fsevents
+57 silly reify mark deleted [ '/var/www/node_modules/fsevents' ]
+58 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-win32-x64-msvc
+59 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-win32-x64-msvc' ]
+60 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-win32-ia32-msvc
+61 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-win32-ia32-msvc' ]
+62 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-win32-arm64-msvc
+63 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-win32-arm64-msvc' ]
+64 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-linux-s390x-gnu
+65 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-linux-s390x-gnu' ]
+66 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-linux-riscv64-gnu
+67 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-linux-riscv64-gnu' ]
+68 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-linux-powerpc64le-gnu
+69 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-linux-powerpc64le-gnu' ]
+70 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-linux-loongarch64-gnu
+71 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-linux-loongarch64-gnu' ]
+72 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-linux-arm64-musl
+73 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-linux-arm64-musl' ]
+74 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-linux-arm64-gnu
+75 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-linux-arm64-gnu' ]
+76 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-linux-arm-musleabihf
+77 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-linux-arm-musleabihf' ]
+78 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-linux-arm-gnueabihf
+79 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-linux-arm-gnueabihf' ]
+80 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-freebsd-x64
+81 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-freebsd-x64' ]
+82 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-freebsd-arm64
+83 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-freebsd-arm64' ]
+84 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-darwin-x64
+85 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-darwin-x64' ]
+86 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-darwin-arm64
+87 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-darwin-arm64' ]
+88 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-android-arm64
+89 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-android-arm64' ]
+90 verbose reify failed optional dependency /var/www/node_modules/@rollup/rollup-android-arm-eabi
+91 silly reify mark deleted [ '/var/www/node_modules/@rollup/rollup-android-arm-eabi' ]
+92 verbose reify failed optional dependency /var/www/node_modules/@esbuild/win32-x64
+93 silly reify mark deleted [ '/var/www/node_modules/@esbuild/win32-x64' ]
+94 verbose reify failed optional dependency /var/www/node_modules/@esbuild/win32-ia32
+95 silly reify mark deleted [ '/var/www/node_modules/@esbuild/win32-ia32' ]
+96 verbose reify failed optional dependency /var/www/node_modules/@esbuild/win32-arm64
+97 silly reify mark deleted [ '/var/www/node_modules/@esbuild/win32-arm64' ]
+98 verbose reify failed optional dependency /var/www/node_modules/@esbuild/sunos-x64
+99 silly reify mark deleted [ '/var/www/node_modules/@esbuild/sunos-x64' ]
+100 verbose reify failed optional dependency /var/www/node_modules/@esbuild/openbsd-x64
+101 silly reify mark deleted [ '/var/www/node_modules/@esbuild/openbsd-x64' ]
+102 verbose reify failed optional dependency /var/www/node_modules/@esbuild/netbsd-x64
+103 silly reify mark deleted [ '/var/www/node_modules/@esbuild/netbsd-x64' ]
+104 verbose reify failed optional dependency /var/www/node_modules/@esbuild/linux-s390x
+105 silly reify mark deleted [ '/var/www/node_modules/@esbuild/linux-s390x' ]
+106 verbose reify failed optional dependency /var/www/node_modules/@esbuild/linux-riscv64
+107 silly reify mark deleted [ '/var/www/node_modules/@esbuild/linux-riscv64' ]
+108 verbose reify failed optional dependency /var/www/node_modules/@esbuild/linux-ppc64
+109 silly reify mark deleted [ '/var/www/node_modules/@esbuild/linux-ppc64' ]
+110 verbose reify failed optional dependency /var/www/node_modules/@esbuild/linux-mips64el
+111 silly reify mark deleted [ '/var/www/node_modules/@esbuild/linux-mips64el' ]
+112 verbose reify failed optional dependency /var/www/node_modules/@esbuild/linux-loong64
+113 silly reify mark deleted [ '/var/www/node_modules/@esbuild/linux-loong64' ]
+114 verbose reify failed optional dependency /var/www/node_modules/@esbuild/linux-ia32
+115 silly reify mark deleted [ '/var/www/node_modules/@esbuild/linux-ia32' ]
+116 verbose reify failed optional dependency /var/www/node_modules/@esbuild/linux-arm64
+117 silly reify mark deleted [ '/var/www/node_modules/@esbuild/linux-arm64' ]
+118 verbose reify failed optional dependency /var/www/node_modules/@esbuild/linux-arm
+119 silly reify mark deleted [ '/var/www/node_modules/@esbuild/linux-arm' ]
+120 verbose reify failed optional dependency /var/www/node_modules/@esbuild/freebsd-x64
+121 silly reify mark deleted [ '/var/www/node_modules/@esbuild/freebsd-x64' ]
+122 verbose reify failed optional dependency /var/www/node_modules/@esbuild/freebsd-arm64
+123 silly reify mark deleted [ '/var/www/node_modules/@esbuild/freebsd-arm64' ]
+124 verbose reify failed optional dependency /var/www/node_modules/@esbuild/darwin-x64
+125 silly reify mark deleted [ '/var/www/node_modules/@esbuild/darwin-x64' ]
+126 verbose reify failed optional dependency /var/www/node_modules/@esbuild/darwin-arm64
+127 silly reify mark deleted [ '/var/www/node_modules/@esbuild/darwin-arm64' ]
+128 verbose reify failed optional dependency /var/www/node_modules/@esbuild/android-x64
+129 silly reify mark deleted [ '/var/www/node_modules/@esbuild/android-x64' ]
+130 verbose reify failed optional dependency /var/www/node_modules/@esbuild/android-arm64
+131 silly reify mark deleted [ '/var/www/node_modules/@esbuild/android-arm64' ]
+132 verbose reify failed optional dependency /var/www/node_modules/@esbuild/android-arm
+133 silly reify mark deleted [ '/var/www/node_modules/@esbuild/android-arm' ]
+134 verbose reify failed optional dependency /var/www/node_modules/@esbuild/aix-ppc64
+135 silly reify mark deleted [ '/var/www/node_modules/@esbuild/aix-ppc64' ]
+136 timing reifyNode:node_modules/fsevents Completed in 48ms
+137 timing reifyNode:node_modules/@rollup/rollup-win32-x64-msvc Completed in 48ms
+138 timing reifyNode:node_modules/@rollup/rollup-win32-ia32-msvc Completed in 49ms
+139 timing reifyNode:node_modules/@rollup/rollup-win32-arm64-msvc Completed in 49ms
+140 timing reifyNode:node_modules/@rollup/rollup-linux-s390x-gnu Completed in 49ms
+141 timing reifyNode:node_modules/@rollup/rollup-linux-riscv64-gnu Completed in 49ms
+142 timing reifyNode:node_modules/@rollup/rollup-linux-powerpc64le-gnu Completed in 50ms
+143 timing reifyNode:node_modules/@rollup/rollup-linux-loongarch64-gnu Completed in 50ms
+144 timing reifyNode:node_modules/@rollup/rollup-linux-arm64-musl Completed in 50ms
+145 timing reifyNode:node_modules/@rollup/rollup-linux-arm64-gnu Completed in 49ms
+146 timing reifyNode:node_modules/@rollup/rollup-linux-arm-musleabihf Completed in 50ms
+147 timing reifyNode:node_modules/@rollup/rollup-linux-arm-gnueabihf Completed in 50ms
+148 timing reifyNode:node_modules/@rollup/rollup-freebsd-x64 Completed in 50ms
+149 timing reifyNode:node_modules/@rollup/rollup-freebsd-arm64 Completed in 51ms
+150 timing reifyNode:node_modules/@rollup/rollup-darwin-x64 Completed in 51ms
+151 timing reifyNode:node_modules/@rollup/rollup-darwin-arm64 Completed in 52ms
+152 timing reifyNode:node_modules/@rollup/rollup-android-arm64 Completed in 51ms
+153 timing reifyNode:node_modules/@rollup/rollup-android-arm-eabi Completed in 51ms
+154 timing reifyNode:node_modules/@esbuild/win32-x64 Completed in 52ms
+155 timing reifyNode:node_modules/@esbuild/win32-ia32 Completed in 52ms
+156 timing reifyNode:node_modules/@esbuild/win32-arm64 Completed in 52ms
+157 timing reifyNode:node_modules/@esbuild/sunos-x64 Completed in 52ms
+158 timing reifyNode:node_modules/@esbuild/openbsd-x64 Completed in 52ms
+159 timing reifyNode:node_modules/@esbuild/netbsd-x64 Completed in 53ms
+160 timing reifyNode:node_modules/@esbuild/linux-s390x Completed in 53ms
+161 timing reifyNode:node_modules/@esbuild/linux-riscv64 Completed in 53ms
+162 timing reifyNode:node_modules/@esbuild/linux-ppc64 Completed in 53ms
+163 timing reifyNode:node_modules/@esbuild/linux-mips64el Completed in 53ms
+164 timing reifyNode:node_modules/@esbuild/linux-loong64 Completed in 53ms
+165 timing reifyNode:node_modules/@esbuild/linux-ia32 Completed in 53ms
+166 timing reifyNode:node_modules/@esbuild/linux-arm64 Completed in 53ms
+167 timing reifyNode:node_modules/@esbuild/linux-arm Completed in 53ms
+168 timing reifyNode:node_modules/@esbuild/freebsd-x64 Completed in 54ms
+169 timing reifyNode:node_modules/@esbuild/freebsd-arm64 Completed in 54ms
+170 timing reifyNode:node_modules/@esbuild/darwin-x64 Completed in 54ms
+171 timing reifyNode:node_modules/@esbuild/darwin-arm64 Completed in 54ms
+172 timing reifyNode:node_modules/@esbuild/android-x64 Completed in 55ms
+173 timing reifyNode:node_modules/@esbuild/android-arm64 Completed in 55ms
+174 timing reifyNode:node_modules/@esbuild/android-arm Completed in 56ms
+175 timing reifyNode:node_modules/@esbuild/aix-ppc64 Completed in 56ms
+176 silly tarball no local data for jquery@https://registry.npmjs.org/jquery/-/jquery-3.7.1.tgz. Extracting by manifest.
+177 silly tarball no local data for @popperjs/core@https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz. Extracting by manifest.
+178 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 386ms
+179 timing auditReport:getReport Completed in 400ms
+180 silly audit report {
+180 silly audit report   esbuild: [
+180 silly audit report     {
+180 silly audit report       id: 1102341,
+180 silly audit report       url: 'https://github.com/advisories/GHSA-67mh-4wv8-2f99',
+180 silly audit report       title: 'esbuild enables any website to send any requests to the development server and read the response',
+180 silly audit report       severity: 'moderate',
+180 silly audit report       vulnerable_versions: '<=0.24.2',
+180 silly audit report       cwe: [Array],
+180 silly audit report       cvss: [Object]
+180 silly audit report     }
+180 silly audit report   ]
+180 silly audit report }
+181 timing metavuln:cache:get:security-advisory:esbuild:jKdCIzePj7J1488qgRXvF8Srh9wutSuR1exB8YooNX62hT+qhtrUXYbArLNoIhgwbaCqKpmduh18syZU7BR9SA== Completed in 122ms
+182 http fetch GET 200 https://registry.npmjs.org/esbuild 763ms (cache updated)
+183 timing metavuln:packument:esbuild Completed in 810ms
+184 timing metavuln:load:security-advisory:esbuild:1102341 Completed in 8ms
+185 timing metavuln:calculate:security-advisory:esbuild:1102341 Completed in 822ms
+186 timing metavuln:cache:get:security-advisory:vite:tMBsdAS7JBTyRORp0YaJR984WAAsOxgmReSLBN0Nd41GhzEakjROICqAJ31iOdYG5Ijo/MlJ01p3ig1iN88+Tw== Completed in 80ms
+187 http fetch GET 200 https://registry.npmjs.org/vite 7346ms (cache updated)
+188 timing metavuln:packument:vite Completed in 7648ms
+189 timing metavuln:load:security-advisory:vite:jKdCIzePj7J1488qgRXvF8Srh9wutSuR1exB8YooNX62hT+qhtrUXYbArLNoIhgwbaCqKpmduh18syZU7BR9SA== Completed in 95ms
+190 timing metavuln:calculate:security-advisory:vite:jKdCIzePj7J1488qgRXvF8Srh9wutSuR1exB8YooNX62hT+qhtrUXYbArLNoIhgwbaCqKpmduh18syZU7BR9SA== Completed in 7744ms
+191 timing metavuln:cache:get:security-advisory:laravel-vite-plugin:9ymg1avCH42NR4fZ8NYT5khSLfL/79IVOPKZGY7IXG4Ax33TpuHm3lGRvmLcwNv0OiYN/pP7KmqU6VENCELRYA== Completed in 1040ms
+192 http fetch GET 200 https://registry.npmjs.org/laravel-vite-plugin 1660ms (cache updated)
+193 timing metavuln:packument:laravel-vite-plugin Completed in 1670ms
+194 timing metavuln:load:security-advisory:laravel-vite-plugin:tMBsdAS7JBTyRORp0YaJR984WAAsOxgmReSLBN0Nd41GhzEakjROICqAJ31iOdYG5Ijo/MlJ01p3ig1iN88+Tw== Completed in 2ms
+195 timing metavuln:calculate:security-advisory:laravel-vite-plugin:tMBsdAS7JBTyRORp0YaJR984WAAsOxgmReSLBN0Nd41GhzEakjROICqAJ31iOdYG5Ijo/MlJ01p3ig1iN88+Tw== Completed in 1707ms
+196 timing auditReport:init Completed in 10316ms
+197 timing reify:audit Completed in 10721ms
+198 http fetch GET 200 https://registry.npmjs.org/jquery/-/jquery-3.7.1.tgz 11212ms (cache miss)
+199 timing reifyNode:node_modules/jquery Completed in 11382ms
+200 http fetch GET 200 https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz 12134ms (cache miss)
+201 timing reifyNode:node_modules/@popperjs/core Completed in 12318ms
+202 timing reify:unpack Completed in 12320ms
+203 timing reify:unretire Completed in 4ms
+204 timing build:queue Completed in 233ms
+205 timing build:deps Completed in 235ms
+206 timing build Completed in 236ms
+207 timing reify:build Completed in 242ms
+208 timing reify:trash Completed in 202ms
+209 timing reify:save Completed in 98ms
+210 timing reify Completed in 16626ms
+211 silly ADD node_modules/jquery
+212 silly ADD node_modules/@popperjs/core
+213 silly ADD
+214 silly ADD
+215 silly ADD
+216 silly ADD
+217 silly ADD
+218 silly ADD
+219 silly ADD
+220 silly ADD
+221 silly ADD
+222 silly ADD
+223 silly ADD
+224 silly ADD
+225 silly ADD
+226 silly ADD
+227 silly ADD
+228 silly ADD
+229 silly ADD
+230 silly ADD
+231 silly ADD
+232 silly ADD
+233 silly ADD
+234 silly ADD
+235 silly ADD
+236 silly ADD
+237 silly ADD
+238 silly ADD
+239 silly ADD
+240 silly ADD
+241 silly ADD
+242 silly ADD
+243 silly ADD
+244 silly ADD
+245 silly ADD
+246 silly ADD
+247 silly ADD
+248 silly ADD
+249 silly ADD
+250 silly ADD
+251 silly ADD
+252 silly ADD
+253 timing command:install Completed in 16706ms
+254 verbose exit 0
+255 timing npm Completed in 16875ms
+256 info ok
