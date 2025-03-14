@@ -2,8 +2,22 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Name -->
+        <!-- Tenant -->
         <div>
+            <x-input-label for="tenant_id" :value="__('Tenant')" />
+            <select id="tenant_id" class="block mt-1 w-full" name="tenant_id" required>
+                <option value="">{{ __('Select a tenant') }}</option>
+                @foreach($tenants as $tenant)
+                    <option value="{{ $tenant->id }}" {{ old('tenant_id') == $tenant->id ? 'selected' : '' }}>
+                        {{ $tenant->name }}
+                    </option>
+                @endforeach
+            </select>
+            <x-input-error :messages="$errors->get('tenant_id')" class="mt-2" />
+        </div>
+
+        <!-- Name -->
+        <div class="mt-4">
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
