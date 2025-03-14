@@ -3,48 +3,55 @@ version: '3.8'
 services:
   app:
     build:
-      context: .
+      args:
+        user: laravel
+        uid: 1000
+      context: ./
       dockerfile: Dockerfile
+    image: deepcenter
     container_name: deepcenter-app
     restart: unless-stopped
-    working_dir: /var/www/
+    working_dir: /var/www
     volumes:
       - ./:/var/www
     networks:
       - deepcenter
 
   nginx:
-    image: nginx:alpine
+    image: nginx:1.25
     container_name: deepcenter-nginx
     restart: unless-stopped
     ports:
-      - "8000:80"
+      - "8080:80"
     volumes:
       - ./:/var/www
       - ./docker/nginx:/etc/nginx/conf.d/
     networks:
       - deepcenter
+    depends_on:
+      - app
 
   db:
     image: mysql:8.0
     container_name: deepcenter-db
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: deepcenter
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: deepcenter
       MYSQL_USER: deepcenter
+      MYSQL_PASSWORD: deepcenter
     volumes:
-      - dbdata:/var/lib/mysql/
+      - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
       - deepcenter
+    command: --default-authentication-plugin=mysql_native_password
 
 networks:
   deepcenter:
     driver: bridge
 
 volumes:
-  dbdata:
+  mysql_data:
     driver: local

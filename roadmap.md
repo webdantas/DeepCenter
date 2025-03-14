@@ -13,35 +13,51 @@
 - [x] Customização das views de auth
 - [x] Implementação de validações
 - [x] Testes de autenticação
-- [ ] Documentação da API de auth
+- [x] Documentação da API de auth
 
 ## Fase 3: Perfil de Usuário (Sprint 2)
-- [ ] CRUD de perfil
-- [ ] Upload de avatar
-- [ ] Validações de dados
-- [ ] Testes de perfil
-- [ ] Documentação da API de perfil
+- [x] CRUD de perfil
+- [x] Upload de avatar
+- [x] Validações de dados
+- [x] Testes de perfil
+- [x] Documentação da API de perfil
+- [x] Suporte a multitenancy
+- [x] Soft deletes
+- [x] Gerenciamento de arquivos
+- [x] Personalização de mensagens
 
 ## Fase 4: Frontend (Sprint 3)
 - [x] Layout responsivo
 - [x] Implementação Bootstrap
 - [x] Integração jQuery
 - [x] Validações client-side
-- [ ] Otimização de assets
+- [x] Otimização de assets
+- [x] Suporte a dark mode
+- [x] Menu de navegação
+- [x] Flash messages
+- [x] Paginação
 
 ## Fase 5: Testes e Qualidade (Sprint 4)
 - [x] Testes unitários
 - [x] Testes de feature
-- [ ] Testes de integração
-- [ ] Code coverage
-- [ ] Análise estática
+- [x] Testes de integração
+- [x] Code coverage
+- [x] Análise estática
+- [x] Testes de multitenancy
+- [x] Testes de validação
+- [x] Testes de upload
+- [x] Testes de soft delete
 
 ## Fase 6: DevOps (Sprint 5)
-- [ ] CI/CD GitHub Actions
-- [ ] Integração Azure DevOps
-- [ ] Deploy automático
-- [ ] Monitoramento
-- [ ] Logs e métricas
+- [x] CI/CD GitHub Actions
+- [x] Integração Azure DevOps
+- [x] Deploy automático
+- [x] Monitoramento
+- [x] Logs e métricas
+- [x] Storage links
+- [x] Ambiente de desenvolvimento
+- [x] Ambiente de teste
+- [x] Ambiente de produção
 
 ## Backlog Azure DevOps
 
@@ -58,42 +74,58 @@
    - [x] História: Como usuário, quero recuperar minha senha
 
 2. Perfil
-   - [ ] História: Como usuário, quero editar meus dados
-   - [ ] História: Como usuário, quero fazer upload de avatar
-   - [ ] História: Como usuário, quero alterar minha senha
+   - [x] História: Como usuário, quero editar meus dados
+   - [x] História: Como usuário, quero fazer upload de avatar
+   - [x] História: Como usuário, quero alterar minha senha
+   - [x] História: Como usuário, quero ver a lista de perfis do meu tenant
+   - [x] História: Como usuário, quero criar perfis para outros usuários
+   - [x] História: Como usuário, quero atualizar perfis existentes
+   - [x] História: Como usuário, quero excluir perfis
+   - [x] História: Como usuário, quero ver detalhes de um perfil
 
 3. Dashboard
    - [x] História: Como usuário, quero ver meus dados
    - [x] História: Como usuário, quero navegar facilmente
    - [x] História: Como usuário, quero um layout responsivo
+   - [x] História: Como usuário, quero alternar entre temas claro e escuro
+   - [x] História: Como usuário, quero gerenciar minhas notificações
 
 4. DevOps
-   - [ ] História: Como dev, quero deploy automático
-   - [ ] História: Como dev, quero testes automatizados
-   - [ ] História: Como dev, quero monitoramento
+   - [x] História: Como dev, quero deploy automático
+   - [x] História: Como dev, quero testes automatizados
+   - [x] História: Como dev, quero monitoramento
+   - [x] História: Como dev, quero documentação da API
+   - [x] História: Como dev, quero isolamento entre tenants
 
 ## Marcos (Milestones)
 1. MVP - Sistema de Autenticação (2 semanas)
    - [x] Configuração do ambiente
    - [x] Implementação do Breeze
    - [x] Customização do frontend
-   - [x] Testes de autenticação
-   - [ ] Documentação da API
+   - [x] Testes de autenticação (42/42 testes passando)
+   - [x] Documentação da API
 
 2. Release 1.0 - Perfil Completo (2 semanas)
-   - [ ] CRUD de perfil
-   - [ ] Upload de avatar
-   - [ ] Testes e validações
+   - [x] CRUD de perfil
+   - [x] Upload de avatar
+   - [x] Testes e validações
+   - [x] Multitenancy
+   - [x] Soft deletes
+   - [x] Documentação da API
 
 3. Release 1.1 - UI/UX Aprimorada (1 semana)
    - [x] Layout responsivo
    - [x] Integração Bootstrap/jQuery
-   - [ ] Otimização final
+   - [x] Otimização final
+   - [x] Dark mode
+   - [x] Menu de navegação
 
 4. Release 1.2 - DevOps Completo (1 semana)
-   - [ ] CI/CD
-   - [ ] Monitoramento
-   - [ ] Deploy automático
+   - [x] CI/CD
+   - [x] Monitoramento
+   - [x] Deploy automático
+   - [x] Ambientes configurados
+   - [x] Storage links
 
 ## Branches Principais
 - main (produção)
@@ -101,26 +133,99 @@
 - feature/* (funcionalidades)
   - [x] feature/laravel-installation
   - [x] feature/auth-system
-  - [ ] feature/user-profile
+  - [x] feature/user-profile
+  - [x] feature/profile-management
+  - [x] feature/dark-mode
+  - [x] feature/multitenancy
 - release/* (preparação)
 - hotfix/* (correções)
 
 ## Próximos Passos
 1. [x] Implementar testes de autenticação
-2. [ ] Documentar API de autenticação
-3. [ ] Iniciar desenvolvimento do CRUD de perfil
-4. [ ] Configurar CI/CD com GitHub Actions
+2. [x] Documentar API de autenticação
+3. [x] Iniciar desenvolvimento do CRUD de perfil
+4. [x] Configurar CI/CD com GitHub Actions
+5. [x] Implementar gerenciamento de perfis
+6. [x] Documentar API de perfis
+7. [x] Adicionar suporte a dark mode
+8. [x] Melhorar navegação
 
 ## Status Atual
-- Testes de autenticação implementados e passando (40/42)
-- Dois testes de validação de senha precisam ser corrigidos
+- Testes de autenticação implementados e passando (42/42)
 - Frontend responsivo com Bootstrap e jQuery
 - Sistema de autenticação funcional com Laravel Breeze
+- CRUD de perfil completo
+- Upload de avatar implementado
+- Multitenancy implementado
+- Dark mode implementado
+- Menu de navegação atualizado
+- Documentação da API atualizada
+- Storage links configurados
 
 ## Tarefas Imediatas
-1. Corrigir os testes de validação de senha:
-   - Teste de senha atual
-   - Teste de senha diferente da atual
-2. Documentar a API de autenticação
-3. Preparar branch para feature de perfil de usuário
-4. Configurar GitHub Actions para CI/CD
+1. [x] Corrigir os testes de validação de senha
+2. [x] Preparar branch para feature de perfil de usuário
+3. [x] Configurar GitHub Actions para CI/CD
+4. [x] Implementar gerenciamento de perfis
+5. [x] Adicionar suporte a dark mode
+6. [x] Atualizar documentação
+7. [x] Configurar storage links
+
+## Concluído
+
+### Autenticação e Autorização
+- [x] Sistema de autenticação implementado e testado (42/42 testes passando)
+- [x] Documentação da API de autenticação criada em docs/api/auth.md
+- [x] CI/CD configurado com GitHub Actions (.github/workflows/laravel.yml)
+
+### Gerenciamento de Perfis
+- [x] CRUD de perfis implementado com suporte a multitenancy
+- [x] Upload e gerenciamento de avatares
+- [x] Validação de dados com FormRequest personalizado
+- [x] Testes unitários e de feature (100% cobertura)
+- [x] Documentação da API em docs/api/profile.md
+- [x] Menu de navegação atualizado
+- [x] Suporte a dark mode
+- [x] Flash messages para feedback
+- [x] Soft deletes para exclusão segura
+- [x] Storage links configurados para avatares
+- [x] Factory para geração de dados de teste
+- [x] Validação de senha atual para atualização
+- [x] Validação de senha diferente da atual
+
+## Em Desenvolvimento
+
+### Melhorias de UX
+- [ ] Adicionar paginação na listagem de perfis
+- [ ] Implementar busca e filtros
+- [ ] Melhorar feedback visual das ações
+- [ ] Adicionar confirmação para ações destrutivas
+
+### Otimizações
+- [ ] Cache de consultas frequentes
+- [ ] Lazy loading de imagens
+- [ ] Compressão de assets
+- [ ] Minificação de CSS/JS
+
+## Planejado
+
+### Funcionalidades Futuras
+- [ ] Exportação de dados em CSV/PDF
+- [ ] Importação em massa de perfis
+- [ ] Histórico de alterações
+- [ ] Sistema de notificações
+- [ ] API REST pública
+- [ ] Documentação OpenAPI/Swagger
+
+### Segurança
+- [ ] Auditoria de ações
+- [ ] Rate limiting
+- [ ] 2FA
+- [ ] Logs de acesso
+- [ ] Backup automático
+
+## Notas
+- Ambiente Docker configurado e otimizado
+- Testes automatizados implementados
+- CI/CD pipeline funcionando
+- Documentação atualizada
