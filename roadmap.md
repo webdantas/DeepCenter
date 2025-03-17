@@ -36,6 +36,8 @@
 - [x] Menu de navegação
 - [x] Flash messages
 - [x] Paginação
+- [x] Correção do menu dropdown
+- [x] Instalação do Alpine.js
 
 ## Fase 5: Testes e Qualidade (Sprint 4)
 - [x] Testes unitários
@@ -89,6 +91,7 @@
    - [x] História: Como usuário, quero um layout responsivo
    - [x] História: Como usuário, quero alternar entre temas claro e escuro
    - [x] História: Como usuário, quero gerenciar minhas notificações
+   - [x] História: Como usuário, quero um menu dropdown funcional
 
 4. DevOps
    - [x] História: Como dev, quero deploy automático
@@ -119,6 +122,8 @@
    - [x] Otimização final
    - [x] Dark mode
    - [x] Menu de navegação
+   - [x] Menu dropdown funcional
+   - [x] Alpine.js integrado
 
 4. Release 1.2 - DevOps Completo (1 semana)
    - [x] CI/CD
@@ -137,8 +142,10 @@
   - [x] feature/profile-management
   - [x] feature/dark-mode
   - [x] feature/multitenancy
+  - [x] feature/menu-dropdown
 - release/* (preparação)
 - hotfix/* (correções)
+  - [x] fix/docker-database-config
 
 ## Próximos Passos
 1. [x] Implementar testes de autenticação
@@ -149,6 +156,8 @@
 6. [x] Documentar API de perfis
 7. [x] Adicionar suporte a dark mode
 8. [x] Melhorar navegação
+9. [x] Corrigir menu dropdown
+10. [x] Integrar Alpine.js
 
 ## Status Atual
 - Testes de autenticação implementados e passando (42/42)
@@ -159,6 +168,8 @@
 - Multitenancy implementado
 - Dark mode implementado
 - Menu de navegação atualizado
+- Menu dropdown funcional
+- Alpine.js integrado
 - Documentação da API atualizada
 - Storage links configurados
 
@@ -170,6 +181,8 @@
 5. [x] Adicionar suporte a dark mode
 6. [x] Atualizar documentação
 7. [x] Configurar storage links
+8. [x] Corrigir menu dropdown
+9. [x] Integrar Alpine.js
 
 ## Concluído
 
@@ -185,6 +198,8 @@
 - [x] Testes unitários e de feature (100% cobertura)
 - [x] Documentação da API em docs/api/profile.md
 - [x] Menu de navegação atualizado
+- [x] Menu dropdown funcional
+- [x] Alpine.js integrado
 - [x] Suporte a dark mode
 - [x] Flash messages para feedback
 - [x] Soft deletes para exclusão segura
@@ -199,33 +214,4 @@
 - [ ] Adicionar paginação na listagem de perfis
 - [ ] Implementar busca e filtros
 - [ ] Melhorar feedback visual das ações
-- [ ] Adicionar confirmação para ações destrutivas
-
-### Otimizações
-- [ ] Cache de consultas frequentes
-- [ ] Lazy loading de imagens
-- [ ] Compressão de assets
-- [ ] Minificação de CSS/JS
-
-## Planejado
-
-### Funcionalidades Futuras
-- [ ] Exportação de dados em CSV/PDF
-- [ ] Importação em massa de perfis
-- [ ] Histórico de alterações
-- [ ] Sistema de notificações
-- [ ] API REST pública
-- [ ] Documentação OpenAPI/Swagger
-
-### Segurança
-- [ ] Auditoria de ações
-- [ ] Rate limiting
-- [ ] 2FA
-- [ ] Logs de acesso
-- [ ] Backup automático
-
-## Notas
-- Ambiente Docker configurado e otimizado
-- Testes automatizados implementados
-- CI/CD pipeline funcionando
-- Documentação atualizada
+- [x] Corrigir menu dropdown

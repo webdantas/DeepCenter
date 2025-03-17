@@ -5,7 +5,7 @@
                 {{ __('View Profile') }}
             </h2>
             <div>
-                <a href="{{ route('profile.management.edit', $profile) }}" class="inline-flex items-center px-4 py-2 bg-primary-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-primary-700 focus:bg-primary-700 active:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                <a href="{{ route('profiles.edit', $profile) }}" class="inline-flex items-center px-4 py-2 bg-primary-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-primary-700 focus:bg-primary-700 active:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition ease-in-out duration-150">
                     {{ __('Edit Profile') }}
                 </a>
             </div>
@@ -21,89 +21,32 @@
                         <div class="md:col-span-1">
                             <div class="flex flex-col items-center">
                                 @if($profile->avatar)
-                                    <img class="h-32 w-32 rounded-full object-cover mb-4" src="{{ Storage::url($profile->avatar) }}" alt="{{ $profile->user->name }}">
+                                    <img class="profile-avatar  rounded-full" 
+                                    src="{{ $profile->avatar_url }}" 
+                                    alt="{{ $profile->name }}">
                                 @else
                                     <div class="h-32 w-32 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mb-4">
                                         <span class="text-gray-500 dark:text-gray-400 text-2xl font-medium">
-                                            {{ substr($profile->user->name, 0, 2) }}
+                                            {{ substr($profile->name, 0, 2) }}
                                         </span>
                                     </div>
                                 @endif
-                                <h3 class="text-lg font-medium">{{ $profile->user->name }}</h3>
-                                <p class="text-gray-500 dark:text-gray-400">{{ $profile->user->email }}</p>
+                                <h3 class="text-lg font-medium">{{ $profile->name }}</h3>
+                                <p class="text-gray-500 dark:text-gray-400">{{ $profile->email }}</p>
                             </div>
                         </div>
 
                         <!-- Profile Details -->
                         <div class="md:col-span-2">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                @if($profile->bio)
-                                    <div class="md:col-span-2">
-                                        <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Bio</h4>
-                                        <p class="mt-1">{{ $profile->bio }}</p>
-                                    </div>
-                                @endif
-
-                                @if($profile->phone)
-                                    <div>
-                                        <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Phone</h4>
-                                        <p class="mt-1">{{ $profile->phone }}</p>
-                                    </div>
-                                @endif
-
-                                @if($profile->address)
-                                    <div class="md:col-span-2">
-                                        <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Address</h4>
-                                        <p class="mt-1">{{ $profile->address }}</p>
-                                    </div>
-                                @endif
-
-                                @if($profile->city || $profile->state || $profile->country)
-                                    <div>
-                                        <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Location</h4>
-                                        <p class="mt-1">
-                                            {{ collect([$profile->city, $profile->state, $profile->country])->filter()->join(', ') }}
-                                        </p>
-                                    </div>
-                                @endif
-
-                                @if($profile->postal_code)
-                                    <div>
-                                        <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Postal Code</h4>
-                                        <p class="mt-1">{{ $profile->postal_code }}</p>
-                                    </div>
-                                @endif
-
                                 <div>
-                                    <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Timezone</h4>
-                                    <p class="mt-1">{{ $profile->timezone }}</p>
+                                    <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Member Since</h4>
+                                    <p class="mt-1">{{ $profile->created_at->format('F j, Y') }}</p>
                                 </div>
 
                                 <div>
-                                    <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Language</h4>
-                                    <p class="mt-1">
-                                        @switch($profile->language)
-                                            @case('en')
-                                                English
-                                                @break
-                                            @case('pt-BR')
-                                                Português (Brasil)
-                                                @break
-                                            @case('es')
-                                                Español
-                                                @break
-                                        @endswitch
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Theme</h4>
-                                    <p class="mt-1">{{ ucfirst($profile->theme) }}</p>
-                                </div>
-
-                                <div>
-                                    <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Notifications</h4>
-                                    <p class="mt-1">{{ $profile->notifications_enabled ? 'Enabled' : 'Disabled' }}</p>
+                                    <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400">Last Updated</h4>
+                                    <p class="mt-1">{{ $profile->updated_at->format('F j, Y') }}</p>
                                 </div>
                             </div>
                         </div>

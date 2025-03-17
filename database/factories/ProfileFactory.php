@@ -23,7 +23,6 @@ class ProfileFactory extends Factory
         $user = User::factory()->create(['tenant_id' => $tenant->id]);
 
         return [
-            'tenant_id' => $tenant->id,
             'user_id' => $user->id,
             'bio' => fake()->paragraphs(2, true),
             'avatar' => null,
@@ -40,24 +39,13 @@ class ProfileFactory extends Factory
         ];
     }
 
-    /**
-     * Indicate that the profile belongs to a specific tenant.
-     */
-    public function forTenant(Tenant $tenant): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'tenant_id' => $tenant->id,
-            'user_id' => User::factory()->create(['tenant_id' => $tenant->id])->id,
-        ]);
-    }
-
+ 
     /**
      * Indicate that the profile belongs to a specific user.
      */
     public function forUser(User $user): static
     {
         return $this->state(fn (array $attributes) => [
-            'tenant_id' => $user->tenant_id,
             'user_id' => $user->id,
         ]);
     }

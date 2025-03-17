@@ -1,64 +1,48 @@
 import './bootstrap';
-import jQuery from 'jquery';
-import '@popperjs/core';
-import 'bootstrap';
+import Alpine from 'alpinejs';
+import '../css/app.css';
 
-window.$ = jQuery;
+window.Alpine = Alpine;
+Alpine.start();
 
-// Configuração global do jQuery para AJAX
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+// Form validation
+document.addEventListener('DOMContentLoaded', function() {
+    // Register form validation
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', function(e) {
+            let isValid = true;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('password_confirmation').value;
+
+            // Password validation
+            if (password.length < 8) {
+                document.getElementById('passwordError').textContent = 'A senha deve ter pelo menos 8 caracteres';
+                isValid = false;
+            } else {
+                document.getElementById('passwordError').textContent = '';
+            }
+
+            // Confirm password validation
+            if (password !== confirmPassword) {
+                document.getElementById('passwordConfirmError').textContent = 'As senhas não coincidem';
+                isValid = false;
+            } else {
+                document.getElementById('passwordConfirmError').textContent = '';
+            }
+
+            if (!isValid) {
+                e.preventDefault();
+            }
+        });
     }
-});
 
-// Exemplo de validação de formulário com jQuery
-$(document).ready(function() {
-    // Validação do formulário de registro
-    $('#registerForm').on('submit', function(e) {
-        let isValid = true;
-        const password = $('#password').val();
-        const confirmPassword = $('#password_confirmation').val();
-
-        // Validação de senha
-        if (password.length < 8) {
-            $('#passwordError').text('A senha deve ter pelo menos 8 caracteres');
-            isValid = false;
-        } else {
-            $('#passwordError').text('');
-        }
-
-        // Validação de confirmação de senha
-        if (password !== confirmPassword) {
-            $('#passwordConfirmError').text('As senhas não coincidem');
-            isValid = false;
-        } else {
-            $('#passwordConfirmError').text('');
-        }
-
-        if (!isValid) {
-            e.preventDefault();
-        }
+    // Auto-hide alerts
+    const alerts = document.querySelectorAll('[role="alert"]');
+    alerts.forEach(alert => {
+        setTimeout(() => {
+            alert.style.opacity = '0';
+            setTimeout(() => alert.remove(), 500);
+        }, 5000);
     });
-
-    // Validação do formulário de login
-    $('#loginForm').on('submit', function(e) {
-        let isValid = true;
-        const email = $('#email').val();
-
-        // Validação de email
-        if (!email.includes('@')) {
-            $('#emailError').text('Por favor, insira um email válido');
-            isValid = false;
-        } else {
-            $('#emailError').text('');
-        }
-
-        if (!isValid) {
-            e.preventDefault();
-        }
-    });
-
-    // Feedback visual para o usuário
-    $('.alert').fadeOut(5000);
 });

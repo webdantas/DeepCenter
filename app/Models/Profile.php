@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;
-use App\Models\Tenant;
 
 class Profile extends Model
 {
@@ -19,7 +18,6 @@ class Profile extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'tenant_id',
         'user_id',
         'bio',
         'avatar',
@@ -50,21 +48,5 @@ class Profile extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Get the tenant that owns the profile.
-     */
-    public function tenant(): BelongsTo
-    {
-        return $this->belongsTo(Tenant::class);
-    }
-
-    /**
-     * Get the tenant ID for the model.
-     */
-    public function getTenantId(): int
-    {
-        return $this->tenant_id;
     }
 }

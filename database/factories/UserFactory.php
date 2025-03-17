@@ -27,7 +27,6 @@ class UserFactory extends Factory
         $tenant = Tenant::factory()->create();
 
         return [
-            'tenant_id' => $tenant->id,
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
@@ -46,13 +45,4 @@ class UserFactory extends Factory
         ]);
     }
 
-    /**
-     * Indicate that the user belongs to a specific tenant.
-     */
-    public function forTenant(Tenant $tenant): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'tenant_id' => $tenant->id,
-        ]);
-    }
 }

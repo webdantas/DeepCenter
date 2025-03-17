@@ -3,116 +3,102 @@
 namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Profile\ProfileUpdateRequest;
-use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileManagementController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(Request $request)
-    {
-        $profiles = Profile::where('tenant_id', $request->user()->tenant_id)
-            ->with('user')
-            ->paginate(10);
-
-        return view('profile.management.index', compact('profiles'));
+    protected function handleAvatar(Request $request, ?string $oldAvatar = null): ?string
+{
+    if (!$request->hasFile('avatar')) {
+        return null;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Delete old avatar if exists
+    if ($oldAvatar && Storage::disk('public')->exists($oldAvatar)) {
+        Storage::disk('public')->delete($oldAvatar);
+    }
+
+    $file = $request->file('avatar');
+    $filename = time() . '_' . $file->getClientOriginalName();
+    
+    // Store with explicit avatars path
+    return $file->storeAs('avatars', $filename, 'public');
+}
+
+    public function index()
+    {
+        return view('profile.management.index', [
+            'profiles' => User::paginate(10)
+        ]);
+    }
+
     public function create()
     {
-        $users = User::where('tenant_id', auth()->user()->tenant_id)
-            ->whereDoesntHave('profile')
-            ->get();
-
-        return view('profile.management.create', compact('users'));
+        return view('profile.management.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(ProfileUpdateRequest $request)
+    public function store(Request $request)
     {
-        $validated = $request->validated();
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'unique:users'],
+            'password' => ['required', 'min:8'],
+            'avatar' => ['nullable', 'image', 'max:1024']
+        ]);
 
-        if ($request->hasFile('avatar')) {
-            $validated['avatar'] = $request->file('avatar')->store('avatars', 'public');
-        }
+        $validated['password'] = Hash::make($validated['password']);
+        $validated['avatar'] = $this->handleAvatar($request);
 
-        $validated['tenant_id'] = auth()->user()->tenant_id;
-        $validated['notifications_enabled'] = $request->boolean('notifications_enabled');
+        User::create($validated);
 
-        $profile = Profile::create($validated);
-
-        return redirect()->route('profile.show', $profile)
-            ->with('success', 'Profile created successfully.');
+        return redirect()->route('profiles.index')
+            ->with('success', 'Profile created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Profile $profile)
+    public function show(User $profile)
     {
-        abort_if($profile->tenant_id !== auth()->user()->tenant_id, 403);
-
         return view('profile.management.show', compact('profile'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Profile $profile)
+    public function edit(User $profile)
     {
-        abort_if($profile->tenant_id !== auth()->user()->tenant_id, 403);
-
         return view('profile.management.edit', compact('profile'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(ProfileUpdateRequest $request, Profile $profile)
+    public function update(Request $request, User $profile)
     {
-        abort_if($profile->tenant_id !== auth()->user()->tenant_id, 403);
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'unique:users,email,' . $profile->id],
+            'password' => ['nullable', 'min:8'],
+            'avatar' => ['nullable', 'image', 'max:1024']
+        ]);
 
-        $validated = $request->validated();
-
-        if ($request->hasFile('avatar')) {
-            if ($profile->avatar) {
-                Storage::disk('public')->delete($profile->avatar);
-            }
-            $validated['avatar'] = $request->file('avatar')->store('avatars', 'public');
+        if ($avatar = $this->handleAvatar($request, $profile->avatar)) {
+            $validated['avatar'] = $avatar;
         }
 
-        $validated['notifications_enabled'] = $request->boolean('notifications_enabled');
+        if (isset($validated['password'])) {
+            $validated['password'] = Hash::make($validated['password']);
+        } else {
+            unset($validated['password']);
+        }
 
         $profile->update($validated);
 
-        return redirect()->route('profile.show', $profile)
-            ->with('success', 'Profile updated successfully.');
+        return redirect()->route('profiles.index')
+            ->with('success', 'Profile updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Profile $profile)
+    public function destroy(User $profile)
     {
-        abort_if($profile->tenant_id !== auth()->user()->tenant_id, 403);
-
-        if ($profile->avatar) {
-            Storage::disk('public')->delete($profile->avatar);
-        }
-
+        $this->handleAvatar(request(), $profile->avatar);
         $profile->delete();
-
-        return redirect()->route('profile.index')
-            ->with('success', 'Profile deleted successfully.');
+        
+        return redirect()->route('profiles.index')
+            ->with('success', 'Profile deleted successfully');
     }
 }

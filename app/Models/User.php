@@ -3,54 +3,55 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+    use HasFactory, Notifiable, SoftDeletes;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
-        'tenant_id',
         'name',
         'email',
         'password',
+        'avatar',
+        'is_admin'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-        'deleted_at' => 'datetime',
+        'is_admin' => 'boolean'
     ];
 
-    /**
-     * Get the tenant that owns the user.
-     */
-    public function tenant(): BelongsTo
+    public function getAvatarUrlAttribute()
     {
-        return $this->belongsTo(Tenant::class);
+        if ($this->avatar) {
+            if (Storage::disk('public')->exists($this->avatar)) {
+                return Storage::disk('public')->url($this->avatar);
+            }
+        }
+        
+        return sprintf(
+            'https://ui-avatars.com/api/?name=%s&color=7F9CF5&background=EBF4FF&size=48',
+            urlencode($this->name)
+        );
+    }
+
+    public function deleteAvatar()
+    {
+        if ($this->avatar) {
+            if (Storage::disk('public')->exists($this->avatar)) {
+                Storage::disk('public')->delete($this->avatar);
+            }
+            $this->update(['avatar' => null]);
+        }
     }
 }
