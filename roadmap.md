@@ -38,6 +38,7 @@
 - [x] Paginação
 - [x] Correção do menu dropdown
 - [x] Instalação do Alpine.js
+- [x] Tradução para português
 
 ## Fase 5: Testes e Qualidade (Sprint 4)
 - [x] Testes unitários
@@ -92,6 +93,7 @@
    - [x] História: Como usuário, quero alternar entre temas claro e escuro
    - [x] História: Como usuário, quero gerenciar minhas notificações
    - [x] História: Como usuário, quero um menu dropdown funcional
+   - [x] História: Como usuário, quero a interface em português
 
 4. DevOps
    - [x] História: Como dev, quero deploy automático
@@ -124,6 +126,7 @@
    - [x] Menu de navegação
    - [x] Menu dropdown funcional
    - [x] Alpine.js integrado
+   - [x] Interface traduzida para português
 
 4. Release 1.2 - DevOps Completo (1 semana)
    - [x] CI/CD
@@ -143,6 +146,7 @@
   - [x] feature/dark-mode
   - [x] feature/multitenancy
   - [x] feature/menu-dropdown
+  - [x] feature/translations
 - release/* (preparação)
 - hotfix/* (correções)
   - [x] fix/docker-database-config
@@ -158,6 +162,7 @@
 8. [x] Melhorar navegação
 9. [x] Corrigir menu dropdown
 10. [x] Integrar Alpine.js
+11. [x] Traduzir interface para português
 
 ## Status Atual
 - Testes de autenticação implementados e passando (42/42)
@@ -172,6 +177,7 @@
 - Alpine.js integrado
 - Documentação da API atualizada
 - Storage links configurados
+- Interface traduzida para português
 
 ## Tarefas Imediatas
 1. [x] Corrigir os testes de validação de senha
@@ -183,6 +189,7 @@
 7. [x] Configurar storage links
 8. [x] Corrigir menu dropdown
 9. [x] Integrar Alpine.js
+10. [x] Traduzir interface para português
 
 ## Concluído
 
@@ -207,6 +214,7 @@
 - [x] Factory para geração de dados de teste
 - [x] Validação de senha atual para atualização
 - [x] Validação de senha diferente da atual
+- [x] Interface traduzida para português
 
 ## Em Desenvolvimento
 
@@ -214,4 +222,3 @@
 - [ ] Adicionar paginação na listagem de perfis
 - [ ] Implementar busca e filtros
 - [ ] Melhorar feedback visual das ações
-- [x] Corrigir menu dropdown
