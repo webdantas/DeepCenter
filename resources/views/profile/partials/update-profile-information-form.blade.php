@@ -20,7 +20,7 @@
         <!-- Avatar -->
         <div>
             @if(auth()->user()->avatar)
-                <img src="{{ Storage::url('avatars/' . auth()->user()->avatar) }}" 
+                <img src="{{ auth()->user()->avatar_url }}" 
                      alt="Profile Avatar" 
                      class="w-20 h-20 rounded-full mb-4">
             @endif
