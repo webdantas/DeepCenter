@@ -69,8 +69,8 @@ docker compose exec app php artisan migrate:fresh --seed
 Acesse o sistema em: http://localhost:8080
 
 Credenciais de acesso:
-- Email: admin@admin.com
-- Senha: admin123
+- Email: admin@deepcenter.com
+- Senha: password
 
 ## CI/CD
 
