@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Profile\ProfileManagementController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +22,7 @@ Route::middleware('auth')->group(function () {
     // Profile Management Routes
     Route::resource('profiles', ProfileManagementController::class);
 });
+
+Route::get('language/{locale}', [LanguageController::class, 'switch'])->name('language.switch');
 
 require __DIR__.'/auth.php';
