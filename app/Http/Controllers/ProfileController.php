@@ -7,10 +7,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Validation\Rules\Password;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
+use Illuminate\Validation\Rules\Password;
 
 class ProfileController extends Controller
 {
@@ -29,13 +30,24 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        Log::info('Profile Update Request', [
+            'validated' => $request->validated(),
+            'has_file' => $request->hasFile('avatar'),
+            'all' => $request->all(),
+            'files' => $request->allFiles(),
+        ]);
 
-        if ($request->hasFile('avatar')) {
-            $avatar = $request->file('avatar');
-            $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            $avatar->storeAs('public/avatars', $filename);
-            $request->user()->avatar = $filename;
+        $validated = $request->validated();
+        
+        // Handle basic fields
+        $request->user()->fill([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+        ]);
+
+        // Handle avatar upload
+        if ($avatar = $this->handleAvatar($request, $request->user()->avatar)) {
+            $request->user()->avatar = $avatar;
         }
 
         if ($request->user()->isDirty('email')) {
@@ -46,6 +58,7 @@ class ProfileController extends Controller
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+
     /**
      * Delete the user's account.
      */
@@ -82,5 +95,23 @@ class ProfileController extends Controller
         ]);
 
         return back()->with('status', 'password-updated');
+    }
+
+    protected function handleAvatar(Request $request, ?string $oldAvatar = null): ?string
+    {
+        if (!$request->hasFile('avatar')) {
+            return null;
+        }
+
+        // Delete old avatar if exists
+        if ($oldAvatar && Storage::disk('public')->exists($oldAvatar)) {
+            Storage::disk('public')->delete($oldAvatar);
+        }
+
+        $file = $request->file('avatar');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        
+        // Store with explicit avatars path
+        return $file->storeAs('avatars', $filename, 'public');
     }
 }

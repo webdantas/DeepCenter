@@ -27,8 +27,6 @@
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
-                        {{-- {{ dd($profile->avatar_url) }} --}}
-
                         <!-- Avatar -->
                         <div class="mt-4">
                             <img src="{{ $profile->avatar_url }}" alt="Avatar">
